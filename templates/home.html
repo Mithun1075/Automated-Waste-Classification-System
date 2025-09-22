@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Dashboard</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+    body { background-color: #e8f4fb; color: #333; }
+
+    .topbar {
+      background: #2196f3;
+      color: white;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .topbar h2 { font-size: 20px; }
+    .topbar nav a {
+      color: white;
+      margin-left: 20px;
+      text-decoration: none;
+      font-size: 14px;
+    }
+    .topbar nav a:hover { text-decoration: underline; }
+
+    div { padding: 10px ; text-align: center; }
+
+    .hero {
+      background: #fff;
+      height: 260px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 15px;
+      padding: 15px;
+    }
+    .hero img {
+      width: 30%;
+      max-width: 400px;
+      border-radius: 12px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+    }
+
+    .about {
+      max-width: 1250px;
+      margin: 0 auto;
+      font-size: 16px;
+      line-height: 1.6;
+      text-align: justify;
+    }
+    .about h2 {
+      color: #2196f3;
+      text-align: center;
+    }
+
+    .upload {
+      background: white;
+      max-width: 700px;
+      height: 150px;
+      margin: 0 auto;
+      padding: 10px;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.425);
+      border: 2px solid #2196f3
+    }
+
+    .upload h2 {
+      margin-bottom: 20px;
+      color: #2196f3;
+    }
+    .upload input[type="file"] {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .upload button {
+      background: #2196f3;
+      color: rgb(255, 255, 255);
+      border: none;
+      padding: 10px 30px;
+      font-size: 14px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .upload button:hover {
+      background: #1976d2;
+    }
+    img{
+      padding: 5px;
+      box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.479);
+      border-radius: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="topbar">
+    <h2>User Dashboard</h2>
+    <h2 style="font-size: 25px; padding-left: 33px;">Automated Waste Classification System</h2>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+      <a href="{% url 'logout' %}">Logout</a>
+    </nav>
+  </div>
+
+  <div class="hero">
+    <img style="width: 500px;" src="{% static 'images/recycle3.png' %}" alt="">
+    <img style="width: 400px; padding: 0px;" src="{% static 'images/recycle4.png' %}" alt="">
+    <img style="width: 500px;" src="{% static 'images/recycle2.png' %}" alt="">
+  </div>
+
+  <div id="about" class="about">
+    <h2>About Us</h2>
+    <p>
+      Our Automated Waste Classification System is designed to make waste management
+      smarter and more efficient. By using advanced machine learning and image recognition,
+      the system can automatically identify different types of waste such as plastic, paper,
+      metal, glass, e-waste, and compost. This helps users easily segregate waste, encourages
+      recycling, and reduces environmental impact. With a simple image upload, the system
+      predicts the waste type and even suggests recycling possibilities, making it a practical
+      solution for promoting sustainability and eco-friendly living.
+    </p>
+  </div>
+
+  <div class="upload">
+    <h2>Upload Waste Image</h2>
+      <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="file" name="file" required><br>
+        <button type="submit">Predict Waste Type</button>
+    </form>
+    </div>
+
+  <div id="contact" style="width:100%; background:#2196f3; color:white; padding:30px 20px; margin-top:30px; text-align:center; ">
+    <h2 style="margin-bottom:15px; font-size:22px;">Contact Us</h2>
+    <p>📧 Email : mithungugan@gmail.com &nbsp; &nbsp; &nbsp; &nbsp;📞 Phone : +91 93440 XXXXX</p>
+    <div>
+      <span style="margin:0 10px;">🌐 Facebook</span>
+      <span style="margin:0 10px;">📷 Instagram</span>
+      <span style="margin:0 10px;">🐦 Twitter</span>
+      <span style="margin:0 10px;">💼 LinkedIn</span>
+      <span style="margin:0 10px;">▶ YouTube</span>
+    </div>
+  </div>
+</body>
+</html>

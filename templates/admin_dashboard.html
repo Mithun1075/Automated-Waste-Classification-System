@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+    body { display: flex; height: 100vh; background-color: #e8f4fb; }
+
+    .sidebar {
+      width: 220px;
+      background: #2196f3;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      padding: 20px 0;
+      height: 100vh;
+      position: fixed;
+      left: 0;
+      top: 0;
+    }
+
+    .logo {
+      text-align: center;
+      font-weight: bold;
+      font-size: 20px;
+      margin-bottom: 30px;
+    }
+
+    .menu { flex-grow: 1; }
+    .menu a {
+      display: block;
+      padding: 12px 20px;
+      color: white;
+      text-decoration: none;
+      font-size: 15px;
+      border-left: 4px solid transparent;
+      transition: 0.3s;
+    }
+
+    .menu a:hover, .menu a.active {
+      background: rgba(255, 255, 255, 0.2);
+      border-left: 4px solid #fff;
+    }
+
+    .bottom-links { margin-top: auto; padding: 12px 20px; }
+    .bottom-links a { color: white; text-decoration: none; }
+
+    .main {
+      flex-grow: 1;
+      padding: 20px;
+      margin-left: 220px;
+      width: calc(100% - 220px);
+      overflow-y: auto;
+    }
+
+    .topbar {
+      font-size: 30px;
+      font-weight: bold;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+    .cards {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      margin-bottom: 30px;
+    }
+
+    .card {
+      flex: 1;
+      text-align: center;
+      padding: 20px;
+      border-radius: 10px;
+      font-size: 20px;
+      font-weight: bold;
+      color: #000;
+      text-decoration: none;
+    }
+
+    .card.orange { background: #ffcc80; }
+    .card.green { background: #a5d6a7; }
+
+    .card:hover { border: 2px solid #000000; }
+
+    .dashboard-description {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      line-height: 1.6;
+      max-width: 1000px;
+      margin: 0 auto 20px auto;
+      font-size: 16px;
+      color: #333;
+      text-align: justify;
+    }
+    .dashboard-image {
+      max-width: 500px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .dashboard-image img {
+      max-width: 100%;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="sidebar">
+    <div class="logo">Admin</div>
+    <div class="menu">
+      <a href="{% url 'admin_dashboard' %}" class="active">Dashboard</a>
+      <a href="{% url 'user_list' %}">User Register Details</a>
+      <a href="{% url 'waste_records' %}">Waste Records</a>
+    </div>
+    <div class="bottom-links">
+      <a href="{% url 'logout' %}">Logout</a>
+    </div>
+  </div>
+
+  <div class="main">
+    <div class="topbar">Welcome to Dashboard</div>
+    <div class="cards">
+
+      <a class="card orange" href="{% url 'user_list' %}">User Register Details</a>
+      <a class="card green" href="{% url 'waste_records' %}">Waste Records</a>
+
+    </div>
+    <div class="dashboard-description">
+      The Admin Dashboard allows administrators to easily oversee and manage the Automated Waste Classification System.
+      It provides access to user registration details and waste classification records, enabling smooth monitoring and control.
+      With built-in machine learning and model compression, the system delivers faster predictions while saving storage space,
+      ensuring efficient performance. This helps administrators maintain the platform effectively while supporting smarter
+      and more eco-friendly waste management.
+    </div>
+
+    <div class="dashboard-image">
+      <img src="{% static 'images/adminimage.png' %}" alt="Dashboard Image">
+    </div>
+  </div>
+</body>
+</html>

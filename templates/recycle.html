@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Recycle Products</title>
+</head>
+<body>
+    <h1>Recycle Products for {{ waste_type }}</h1>
+    <ul>
+        {% for item in products %}
+            <li>{{ item }}</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'home' %}">Back to Home</a>
+</body>
+</html>
