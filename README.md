@@ -52,7 +52,18 @@ Automated-Waste-Classification-System/
 - MySQL Server  
 - Virtual Environment (recommended)
 
+
+---
+
+## 🧩 Installation & Setup
+
+### Prerequisites
+- Python 3.x  
+- MySQL Server  
+- Virtual Environment (recommended)
+
 ### Steps
+```
 # 1️⃣ Clone the repository
 git clone https://github.com/<your-username>/Automated-Waste-Classification-System.git
 
@@ -67,10 +78,7 @@ python manage.py migrate
 
 # 5️⃣ Start the development server
 python manage.py runserver
-
-Then open your browser and go to:
-👉 http://127.0.0.1:8000/
-
+```
 ---
 
 📊 Machine Learning Model
